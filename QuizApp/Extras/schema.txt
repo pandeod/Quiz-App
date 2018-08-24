@@ -1,0 +1,36 @@
+---------------------------------------------------
+Database : Mysql(Server) , mysqlite(local)
+---------------------------------------------------
+
+schema on server
+----------
+`Faculty`
+_______________
+fid
+username
+email
+password
+
+`schedule`
+_______________
+sid
+date
+time
+room no(s)
+subject
+faculty in-charge[fid]
+title
+description
+
+---------------------------------------------------
+`schedule`
+_______________
+sid
+date
+time
+room no(s)
+subject
+faculty in-charge[fid]
+title
+description
+update status {values:[pending,success,failure]}
