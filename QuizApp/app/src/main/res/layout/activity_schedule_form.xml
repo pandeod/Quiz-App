@@ -11,6 +11,7 @@
         android:text="Schedule IA"
         android:gravity="center"
         android:textSize="20sp"
+        android:fontFamily="cursive"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -19,9 +20,9 @@
     <GridLayout
         android:layout_margin="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <TextView
-            android:text="Text"
+            android:text="Title"
             android:gravity="center"
             android:layout_margin="10dp"
             android:layout_column="0"
@@ -30,7 +31,9 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content" />
         <EditText
-            android:hint="Text"
+            android:hint="IA no."
+            android:id="@+id/schedule_ia_name"
+            android:fontFamily="cursive"
             android:layout_margin="10dp"
             android:layout_column="1"
             android:layout_row="0"
@@ -39,72 +42,159 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content" />
         <TextView
-            android:text="Text"
+            android:text="Subject"
             android:gravity="center"
-            android:layout_margin="10dp"
-            android:layout_column="0"
-            android:layout_row="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_column="2"
+            android:layout_row="0"
             android:textSize="17sp"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content" />
         <EditText
-            android:hint="Text"
+            android:hint="subject"
+            android:id="@+id/schedule_ia_subject"
+            android:fontFamily="cursive"
             android:layout_margin="10dp"
-            android:layout_column="1"
-            android:layout_row="1"
-            android:textSize="17sp"
-            android:layout_gravity="fill_horizontal"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
-        <TextView
-            android:text="Text"
-            android:gravity="center"
-            android:layout_margin="10dp"
-            android:layout_column="0"
-            android:layout_row="2"
-            android:textSize="17sp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
-        <EditText
-            android:hint="Text"
-            android:layout_margin="10dp"
-            android:layout_column="1"
-            android:layout_row="2"
-            android:textSize="17sp"
-            android:layout_gravity="fill_horizontal"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
-        <TextView
-            android:text="Text"
-            android:gravity="center"
-            android:layout_margin="10dp"
-            android:layout_column="0"
-            android:layout_row="3"
-            android:textSize="17sp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
-        <EditText
-            android:hint="Text"
-            android:layout_margin="10dp"
-            android:layout_column="1"
-            android:layout_row="3"
-            android:textSize="17sp"
-            android:layout_gravity="fill_horizontal"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
-        <Button
-            android:text="Submit"
-            android:elevation="3dp"
-            android:gravity="center"
-            android:background="@color/colorPrimary"
-            android:textColor="#fff"
-            android:layout_margin="10dp"
-            android:layout_column="0"
+            android:layout_column="3"
             android:layout_columnSpan="2"
-            android:layout_row="4"
+            android:layout_row="0"
             android:textSize="17sp"
-            android:layout_gravity="center"
+            android:layout_gravity="fill_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+        <TextView
+            android:text="Syllabus"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:textSize="17sp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+        <EditText
+            android:hint="Modules 1,2 etc"
+            android:id="@+id/schedule_ia_syllabus"
+            android:fontFamily="cursive"
+            android:layout_margin="10dp"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:layout_columnSpan="4"
+            android:textSize="17sp"
+            android:layout_gravity="fill_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+        <TextView
+            android:text="Labs"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:layout_column="0"
+            android:layout_row="2"
+            android:textSize="17sp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+        <EditText
+            android:hint="Lab no."
+            android:id="@+id/schedule_ia_labs"
+            android:fontFamily="cursive"
+            android:layout_margin="10dp"
+            android:layout_column="1"
+            android:layout_row="2"
+            android:layout_columnSpan="4"
+            android:textSize="17sp"
+            android:layout_gravity="fill_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+        <TextView
+            android:text="Date"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:layout_column="0"
+            android:layout_row="3"
+            android:textSize="17sp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+        <EditText
+            android:hint="Date"
+            android:id="@+id/schedule_ia_date"
+            android:fontFamily="cursive"
+            android:layout_margin="10dp"
+            android:layout_column="1"
+            android:layout_row="3"
+            android:inputType="date"
+            android:layout_columnSpan="4"
+            android:textSize="17sp"
+            android:layout_gravity="fill_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_row="4"
+            android:gravity="center"
+            android:text="from"
+            android:textSize="17sp" />
+        <EditText
+            android:hint="Time"
+            android:id="@+id/schedule_ia_time_from"
+            android:onClick="showTimePickerDialog"
+            android:fontFamily="cursive"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_column="2"
+            android:layout_row="4"
+            android:inputType="time"
+            android:textSize="17sp"
+            android:layout_gravity="fill_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+        <TextView
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_row="4"
+            android:gravity="center"
+            android:text="to"
+            android:textSize="17sp" />
+
+        <EditText
+            android:hint="Time"
+            android:id="@+id/schedule_ia_time_to"
+            android:onClick="showTimePickerDialog"
+            android:fontFamily="cursive"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_column="4"
+            android:layout_row="4"
+            android:inputType="time"
+            android:textSize="17sp"
+            android:layout_gravity="fill_horizontal"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content" />
     </GridLayout>
+
+    <Button
+        android:text="Schedule"
+        android:elevation="3dp"
+        android:textAllCaps="false"
+        android:gravity="center"
+        android:background="@color/colorPrimary"
+        android:textColor="#fff"
+        android:padding="10dp"
+        android:textSize="15sp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
 </LinearLayout>
