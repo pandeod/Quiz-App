@@ -52,14 +52,4 @@ tools:context=".Activity.Student.StudentHome">
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>
     </ScrollView>
-    <io.github.yavski.fabspeeddial.FabSpeedDial
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:elevation="3dp"
-        app:fabGravity="bottom_end"
-        app:fabMenu="@menu/float_menu"
-        app:miniFabBackgroundTint="@android:color/white"
-        app:miniFabDrawableTint="?attr/colorPrimaryDark"
-        app:miniFabTitleTextColor="?attr/colorPrimaryDark" />
 </FrameLayout>

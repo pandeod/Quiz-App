@@ -1,15 +1,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_call"
+        android:id="@+id/action_schedule"
         android:icon="@drawable/scheduler_logo"
         android:title="Schedule IA" />
     <item
-        android:id="@+id/action_text"
+        android:id="@+id/action_setting"
         android:icon="@drawable/scheduler_logo"
         android:title="Settings"/>
     <item
-        android:id="@+id/action_email"
+        android:id="@+id/action_about"
         android:icon="@drawable/scheduler_logo"
         android:title="About" />
 </menu>

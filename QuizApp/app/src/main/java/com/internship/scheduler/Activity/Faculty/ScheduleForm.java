@@ -1,62 +1,111 @@
 package com.internship.scheduler.Activity.Faculty;
 
-import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.app.TimePickerDialog;
-import android.support.v4.app.DialogFragment;
+import android.icu.util.Calendar;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
+//import R
 import com.internship.scheduler.R;
 
-import java.util.Calendar;
+public class ScheduleForm extends AppCompatActivity implements View.OnClickListener{
 
-public class ScheduleForm extends AppCompatActivity {
+    private EditText mDateEditText;
+    private EditText mTimeEditText;
+    private EditText mTimeEditText1;
+    private int mYear, mMonth, mDay, mHour, mMinute;
+    private FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_form);
 
-        DatePickerDialog.OnDateSetListener myDateListener = new DatePickerDialog.OnDateSetListener() {
+        mDateEditText = (EditText) findViewById(R.id.newTodoDateEditText);
+        mTimeEditText = (EditText) findViewById(R.id.newTodoTimeEditText);
+        mTimeEditText1 = (EditText) findViewById(R.id.newTodoTimeEditText1);
+
+        mDateEditText.setOnClickListener(this);
+        mTimeEditText.setOnClickListener(this);
+        mTimeEditText1.setOnClickListener(this);
+
+        floatingActionButton=findViewById(R.id.makeToDoFloatingActionButton);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDateSet(DatePicker arg0, int arg1, int arg2, int arg3) {
-                // arg1 = year
-                // arg2 = month
-                // arg3 = day
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"clicked",Toast.LENGTH_SHORT).show();
+                //Intent intent=new Intent(getApplicationContext(),Main2Activity.class);
+                //startActivity(intent);
             }
-        };
+        });
     }
-
-    public void showTimePickerDialog(View v) {
-        DialogFragment newFragment = new TimePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "timePicker");
-    }
-}
-
-@SuppressLint("ValidFragment")
-class TimePickerFragment extends DialogFragment
-        implements TimePickerDialog.OnTimeSetListener {
 
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // Use the current time as the default values for the picker
-        final Calendar c = Calendar.getInstance();
-        int hour = c.get(Calendar.HOUR_OF_DAY);
-        int minute = c.get(Calendar.MINUTE);
+    public void onClick(View v) {
+        if(v==mDateEditText)
+        {
+            // Get Current Date
+            final Calendar c = Calendar.getInstance();
+            mYear = c.get(Calendar.YEAR);
+            mMonth = c.get(Calendar.MONTH);
+            mDay = c.get(Calendar.DAY_OF_MONTH);
 
-        // Create a new instance of TimePickerDialog and return it
-        return new TimePickerDialog(getActivity(), this, hour, minute,
-                DateFormat.is24HourFormat(getActivity()));
-    }
 
-    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        // Do something with the time chosen by the user
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                    new DatePickerDialog.OnDateSetListener() {
+
+                        @Override
+                        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                            mDateEditText.setText(String.format("%02d", dayOfMonth) + "/" + String.format("%02d", (monthOfYear + 1))+ "/" + year);
+                        }
+                    }, mYear, mMonth, mDay);
+            datePickerDialog.show();
+        }
+        else if (v==mTimeEditText)
+        {
+
+            // Get Current Time
+            final Calendar c = Calendar.getInstance();
+            mHour = c.get(Calendar.HOUR_OF_DAY);
+            mMinute = c.get(Calendar.MINUTE);
+
+            // Launch Time Picker Dialog
+            TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+                    new TimePickerDialog.OnTimeSetListener() {
+
+                        @Override
+                        public void onTimeSet(TimePicker view, int hourOfDay,
+                                              int minute) {
+                            mTimeEditText.setText(String.format("%02d",hourOfDay) + ":" + String.format("%02d",minute));
+                        }
+                    }, mHour, mMinute, false);
+            timePickerDialog.show();
+        }
+        else if (v==mTimeEditText1)
+        {
+            // Get Current Time
+            final Calendar c = Calendar.getInstance();
+            mHour = c.get(Calendar.HOUR_OF_DAY);
+            mMinute = c.get(Calendar.MINUTE);
+
+            // Launch Time Picker Dialog
+            TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+                    new TimePickerDialog.OnTimeSetListener() {
+
+                        @Override
+                        public void onTimeSet(TimePicker view, int hourOfDay,
+                                              int minute) {
+                            mTimeEditText1.setText(String.format("%02d",hourOfDay) + ":" + String.format("%02d",minute));
+                        }
+                    }, mHour, mMinute, false);
+            timePickerDialog.show();
+        }
     }
 }
-

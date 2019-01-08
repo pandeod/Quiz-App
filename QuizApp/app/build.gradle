@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.internship.scheduler"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -30,4 +30,5 @@ dependencies {
     implementation 'com.android.support:design:27.1.1'
     implementation 'io.github.yavski:fab-speed-dial:1.0.6'
     implementation 'com.github.prolificinteractive:material-calendarview:1.6.0'
+    implementation 'com.android.support:design:27.1.1'
 }
