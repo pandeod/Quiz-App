@@ -42,14 +42,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button b4=findViewById(R.id.schedule_ia);
-        b4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),ScheduleForm.class));
-            }
-        });
-
         Button b5=findViewById(R.id.about);
         b5.setOnClickListener(new View.OnClickListener() {
             @Override

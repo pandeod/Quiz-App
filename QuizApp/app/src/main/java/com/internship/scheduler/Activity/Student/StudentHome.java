@@ -60,7 +60,7 @@ public class StudentHome  extends AppCompatActivity implements OnDateSelectedLis
 
     @Override
     public void onDateSelected(@NonNull MaterialCalendarView materialCalendarView, @NonNull CalendarDay calendarDay, boolean b) {
-        todaysDate.setText("You are Viewing : "+calendarDay.getDay()+"-"+calendarDay.getMonth()+1+"-"+calendarDay.getYear());
+        todaysDate.setText("You are Viewing : "+ String.format("%02d",calendarDay.getDay())+"-"+String.format("%02d",calendarDay.getMonth()+1)+"-"+calendarDay.getYear());
     }
 
     @Override
