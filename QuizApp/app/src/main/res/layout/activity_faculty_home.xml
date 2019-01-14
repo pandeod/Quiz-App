@@ -8,12 +8,17 @@
     android:background="#fff"
     tools:context=".Activity.Faculty.FacultyHome">
 
-    <ScrollView
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollViewFaculty"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+
         <LinearLayout
             android:orientation="vertical"
             android:layout_gravity="start"
+            android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -50,7 +55,8 @@
                 android:layout_height="wrap_content">
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
+
     <io.github.yavski.fabspeeddial.FabSpeedDial
         android:id="@+id/fab_speed_dial"
         android:layout_width="wrap_content"

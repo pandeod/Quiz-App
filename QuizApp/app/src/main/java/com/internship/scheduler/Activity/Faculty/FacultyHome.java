@@ -2,6 +2,7 @@ package com.internship.scheduler.Activity.Faculty;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -35,10 +36,9 @@ public class FacultyHome extends AppCompatActivity implements OnDateSelectedList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty_home);
 
-
-// floating button : https://github.com/yavski/fab-speed-dial/blob/master/README.md
-// Calendar Day : https://prolificinteractive.github.io/material-calendarview/com/prolificinteractive/materialcalendarview/CalendarDay.html
-// Calendar View : https://github.com/prolificinteractive/material-calendarview/blob/master/README.md
+        // floating button : https://github.com/yavski/fab-speed-dial/blob/master/README.md
+        // Calendar Day : https://prolificinteractive.github.io/material-calendarview/com/prolificinteractive/materialcalendarview/CalendarDay.html
+        // Calendar View : https://github.com/prolificinteractive/material-calendarview/blob/master/README.md
 
         todaysDate=findViewById(R.id.date_today);
         calendarView=findViewById(R.id.calendarView);
@@ -65,6 +65,8 @@ public class FacultyHome extends AppCompatActivity implements OnDateSelectedList
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         adapter=new CalendarAdapter(eventItems, getApplicationContext());
         recyclerView.setAdapter(adapter);
+        recyclerView.setFocusable(false);
+        ViewCompat.setNestedScrollingEnabled(recyclerView,false);
 
         FabSpeedDial fabSpeedDial = (FabSpeedDial) findViewById(R.id.fab_speed_dial);
         fabSpeedDial.setMenuListener(new SimpleMenuListenerAdapter() {

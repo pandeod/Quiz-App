@@ -23,10 +23,8 @@
         <activity android:name=".Activity.Student.StudentHome" />
         <activity
             android:name=".Activity.Faculty.ScheduleForm"
+            android:theme="@style/ScheduleFormTheme"
             android:parentActivityName=".Activity.Faculty.FacultyHome">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activity.Faculty.FacultyHome"/>
         </activity>
     </application>
 

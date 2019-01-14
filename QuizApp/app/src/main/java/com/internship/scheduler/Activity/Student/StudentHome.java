@@ -1,6 +1,7 @@
 package com.internship.scheduler.Activity.Student;
 
 import android.support.annotation.NonNull;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -56,6 +57,8 @@ public class StudentHome  extends AppCompatActivity implements OnDateSelectedLis
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         adapter=new CalendarAdapter(eventItems, getApplicationContext());
         recyclerView.setAdapter(adapter);
+        recyclerView.setFocusable(false);
+        ViewCompat.setNestedScrollingEnabled(recyclerView,false);
     }
 
     @Override

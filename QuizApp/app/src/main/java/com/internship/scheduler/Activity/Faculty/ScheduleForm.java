@@ -1,7 +1,9 @@
 package com.internship.scheduler.Activity.Faculty;
 
+import android.app.ActionBar;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.icu.util.Calendar;
@@ -35,23 +37,23 @@ public class ScheduleForm extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_schedule_form);
 
         //Show an X in place of <-
-//        final Drawable cross = getResources().getDrawable(R.drawable.ic_clear_white_24dp);
-//        if (cross != null) {
-//            cross.setColorFilter(getResources().getColor(R.color.icons), PorterDuff.Mode.SRC_ATOP);
-//        }
+        final Drawable cross = getResources().getDrawable(R.drawable.ic_clear_white_24dp);
+        if (cross != null) {
+            cross.setColorFilter(getResources().getColor(R.color.icons), PorterDuff.Mode.SRC_ATOP);
+        }
 /*
     TODO : add back button
  */
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        this.setSupportActionBar(mToolbar);
+//        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+//        this.setSupportActionBar(mToolbar);
 
-//        if (this.getSupportActionBar() != null) {
+        if (this.getSupportActionBar() != null) {
 //            Toast.makeText(this,"Nothing",Toast.LENGTH_LONG).show();
-//            getSupportActionBar().setElevation(0);
-//            getSupportActionBar().setDisplayShowTitleEnabled(false);
-//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//            getSupportActionBar().setHomeAsUpIndicator(cross);
-//        }
+            getSupportActionBar().setElevation(0);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeAsUpIndicator(cross);
+        }
 
         mDateEditText = (EditText) findViewById(R.id.newTodoDateEditText);
         mTimeEditText = (EditText) findViewById(R.id.newTodoTimeEditText);
@@ -65,9 +67,10 @@ public class ScheduleForm extends AppCompatActivity implements View.OnClickListe
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"clicked",Toast.LENGTH_SHORT).show();
-                //Intent intent=new Intent(getApplicationContext(),Main2Activity.class);
-                //startActivity(intent);
+                //Toast.makeText(getApplicationContext(),"clicked",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),FacultyHome.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                finish();
             }
         });
     }
