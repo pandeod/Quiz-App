@@ -15,17 +15,21 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.Faculty.FacultyHome" />
-        <activity android:name=".Activity.Student.StudentHome" />
+        <activity
+            android:name=".Activity.Faculty.FacultyHome"
+            android:theme="@style/AppTheme"    />
+        <activity
+            android:name=".Activity.Student.StudentHome"
+            android:theme="@style/AppTheme"     />
         <activity
             android:name=".Activity.Faculty.ScheduleForm"
-            android:theme="@style/ScheduleFormTheme"
-            android:parentActivityName=".Activity.Faculty.FacultyHome">
-        </activity>
+            android:parentActivityName=".Activity.Faculty.FacultyHome"
+            android:theme="@style/ScheduleFormTheme"/>
+        <activity android:name=".Activity.About"
+            android:theme="@style/CalendarTheme"     />
     </application>
 
 </manifest>

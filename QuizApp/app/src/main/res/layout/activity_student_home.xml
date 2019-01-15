@@ -8,7 +8,6 @@ android:layout_height="match_parent"
 android:background="#fff"
 tools:context=".Activity.Student.StudentHome">
 
-
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
@@ -18,7 +17,6 @@ tools:context=".Activity.Student.StudentHome">
         <LinearLayout
             android:orientation="vertical"
             android:layout_gravity="start"
-            android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

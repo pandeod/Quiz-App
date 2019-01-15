@@ -8,6 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.CalendarView;
 import android.widget.TextView;
+
+import com.internship.scheduler.Activity.BaseActivity;
 import com.internship.scheduler.Adapter.CalendarAdapter;
 import com.internship.scheduler.Entity.CalendarEvent;
 import com.internship.scheduler.R;
@@ -20,7 +22,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class StudentHome  extends AppCompatActivity implements OnDateSelectedListener {
+public class StudentHome  extends BaseActivity implements OnDateSelectedListener {
 
     RecyclerView recyclerView;
     CalendarAdapter adapter;
@@ -31,6 +33,7 @@ public class StudentHome  extends AppCompatActivity implements OnDateSelectedLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_home);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         todaysDate=findViewById(R.id.date_today);
         calendarView=findViewById(R.id.calendarView);

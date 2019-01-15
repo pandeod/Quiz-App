@@ -3,12 +3,14 @@ package com.internship.scheduler.Activity.Faculty;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.internship.scheduler.Activity.About;
+import com.internship.scheduler.Activity.BaseActivity;
 import com.internship.scheduler.Adapter.CalendarAdapter;
 import com.internship.scheduler.Entity.CalendarEvent;
 import com.internship.scheduler.R;
@@ -24,7 +26,7 @@ import java.util.List;
 import io.github.yavski.fabspeeddial.FabSpeedDial;
 import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter;
 
-public class FacultyHome extends AppCompatActivity implements OnDateSelectedListener {
+public class FacultyHome extends BaseActivity implements OnDateSelectedListener {
 
     RecyclerView recyclerView;
     CalendarAdapter adapter;
@@ -35,6 +37,7 @@ public class FacultyHome extends AppCompatActivity implements OnDateSelectedList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty_home);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         // floating button : https://github.com/yavski/fab-speed-dial/blob/master/README.md
         // Calendar Day : https://prolificinteractive.github.io/material-calendarview/com/prolificinteractive/materialcalendarview/CalendarDay.html
@@ -85,14 +88,15 @@ public class FacultyHome extends AppCompatActivity implements OnDateSelectedList
                         finish();
                         break;
                     case R.id.action_about :
-//                        startActivity(new Intent(getApplicationContext(),ScheduleForm.class));
-//                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-//                        finish();
+                        startActivity(new Intent(getApplicationContext(),About.class));
+                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                        finish();
                         break;
                 }
                 return false;
             }
         });
+
     }
 
     @Override

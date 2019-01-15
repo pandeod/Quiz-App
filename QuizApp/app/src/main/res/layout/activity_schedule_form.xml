@@ -52,6 +52,7 @@
                             android:layout_marginRight="32dp"
                             android:gravity="start|bottom"
                             android:hint="Title"
+                            android:textColorHint="#fff"
                             android:inputType="textCapCharacters"
                             android:lines="1"
                             android:maxLines="1"
@@ -266,9 +267,11 @@
                 android:layout_marginRight="16dp"
                 android:src="@drawable/ic_send_black_24dp"
                 app:fabSize="normal"
+                android:backgroundTint="@color/colorAccent"
                 app:layout_anchor="@id/editTextParentLinearLayout"
                 app:layout_anchorGravity="bottom|right" />
         </android.support.design.widget.CoordinatorLayout>
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
