@@ -1,9 +1,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/action_schedule"
-        android:icon="@drawable/scheduler_logo"
-        android:title="Schedule IA" />
+    <!--<item-->
+        <!--android:id="@+id/action_schedule"-->
+        <!--android:icon="@drawable/scheduler_logo"-->
+        <!--android:title="Schedule IA" />-->
     <item
         android:id="@+id/action_setting"
         android:icon="@drawable/scheduler_logo"

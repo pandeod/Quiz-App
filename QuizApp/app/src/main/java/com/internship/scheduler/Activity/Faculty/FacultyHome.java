@@ -2,13 +2,17 @@ package com.internship.scheduler.Activity.Faculty;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewCompat;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
+import com.internship.scheduler.API.TalkToDatabase;
 import com.internship.scheduler.Activity.About;
 import com.internship.scheduler.Activity.BaseActivity;
 import com.internship.scheduler.Adapter.CalendarAdapter;
@@ -37,7 +41,7 @@ public class FacultyHome extends BaseActivity implements OnDateSelectedListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faculty_home);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        setActionBar("Scheduled Events");
 
         // floating button : https://github.com/yavski/fab-speed-dial/blob/master/README.md
         // Calendar Day : https://prolificinteractive.github.io/material-calendarview/com/prolificinteractive/materialcalendarview/CalendarDay.html
@@ -71,37 +75,60 @@ public class FacultyHome extends BaseActivity implements OnDateSelectedListener 
         recyclerView.setFocusable(false);
         ViewCompat.setNestedScrollingEnabled(recyclerView,false);
 
-        FabSpeedDial fabSpeedDial = (FabSpeedDial) findViewById(R.id.fab_speed_dial);
-        fabSpeedDial.setMenuListener(new SimpleMenuListenerAdapter() {
+//        FabSpeedDial fabSpeedDial = (FabSpeedDial) findViewById(R.id.fab_speed_dial);
+//        fabSpeedDial.setMenuListener(new SimpleMenuListenerAdapter() {
+//            @Override
+//            public boolean onMenuItemSelected(MenuItem menuItem) {
+//                switch (menuItem.getItemId())
+//                {
+//                    case R.id.action_schedule:
+//                        startActivity(new Intent(getApplicationContext(),ScheduleForm.class));
+//                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+//                        finish();
+//                        break;
+//                    case R.id.action_setting :
+//                        startActivity(new Intent(getApplicationContext(),ScheduleForm.class));
+//                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+//                        finish();
+//                        break;
+//                    case R.id.action_about :
+//                        startActivity(new Intent(getApplicationContext(),About.class));
+//                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+//                        finish();
+//                        break;
+//                }
+//                return false;
+//            }
+//        });
+
+        FloatingActionButton floatingActionButton=findViewById(R.id.floating_btn_schedule);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onMenuItemSelected(MenuItem menuItem) {
-                switch (menuItem.getItemId())
-                {
-                    case R.id.action_schedule:
-                        startActivity(new Intent(getApplicationContext(),ScheduleForm.class));
-                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                        finish();
-                        break;
-                    case R.id.action_setting :
-                        startActivity(new Intent(getApplicationContext(),ScheduleForm.class));
-                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                        finish();
-                        break;
-                    case R.id.action_about :
-                        startActivity(new Intent(getApplicationContext(),About.class));
-                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                        finish();
-                        break;
-                }
-                return false;
+            public void onClick(View v) {
+                //Toast.makeText(getApplicationContext(),"clicked",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),ScheduleForm.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                finish();
             }
         });
 
     }
 
+    public void setActionBar(String heading) {
+        // TODO Auto-generated method stub
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(false);
+        actionBar.setDisplayShowHomeEnabled(false);
+        actionBar.setTitle(heading);
+        actionBar.show();
+    }
+
     @Override
     public void onDateSelected(@NonNull MaterialCalendarView materialCalendarView, @NonNull CalendarDay calendarDay, boolean b) {
         todaysDate.setText("You are Viewing : "+ String.format("%02d",calendarDay.getDay())+"-"+String.format("%02d",calendarDay.getMonth()+1)+"-"+calendarDay.getYear());
+        String toSend = calendarDay.getYear() + "-"+(calendarDay.getMonth()+1)+"-"+calendarDay.getDay();
+        new TalkToDatabase(this,recyclerView,"Loading details for " + toSend).execute(toSend);
     }
 
     @Override

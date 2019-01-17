@@ -29,7 +29,7 @@
             android:parentActivityName=".Activity.Faculty.FacultyHome"
             android:theme="@style/ScheduleFormTheme"/>
         <activity android:name=".Activity.About"
-            android:theme="@style/CalendarTheme"     />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"     />
     </application>
 
 </manifest>
